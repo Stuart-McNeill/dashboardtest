@@ -14,6 +14,6 @@ document.getElementById("loginbtn").addEventListener("click", (e) => {
   const pass = document.getElementById("password").value;
 
   signInWithEmailAndPassword(auth, email, pass)
-    .then(() => window.location.href = "dashboard.html")
+    .then(() => window.location.href = "dashboard")
     .catch((e) => alert(e.message));
 });
