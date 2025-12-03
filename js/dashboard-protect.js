@@ -9,7 +9,7 @@ import {
 const auth = getAuth(app);
 
 onAuthStateChanged(auth, (user) => {
-  if (!user) window.location.href = "login.html";
+  if (!user) window.location.href = "index.html";
   else document.getElementById("userInfo").innerText = "Logged in as " + user.email;
 });
 
