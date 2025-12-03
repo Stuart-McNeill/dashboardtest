@@ -8,50 +8,11 @@
 	<meta name="robots" content="index, follow">
     <link rel="shortcut icon" type="image/png" href="../favicon.png">
     
-	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css?4975">
-	<link rel="stylesheet" type="text/css" href="../style.css?8083">
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css?91">
+	<link rel="stylesheet" type="text/css" href="../style.css?4822">
 	
     <title>Home-1</title>
 
-<script type="module">
-  // Import Firebase SDK
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-  import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-
-  // Your Firebase config
-  const firebaseConfig = {
-    apiKey: "AIzaSyDpERVmyx4n6t1yW7YxHPKVsfmY4bOVBv0",
-    authDomain: "html-website-auth-v2.firebaseapp.com",
-    projectId: "html-website-auth-v2",
-    storageBucket: "html-website-auth-v2.firebasestorage.app",
-    messagingSenderId: "789981394325",
-    appId: "1:789981394325:web:f012a35a12d3b49584f29c",
-    measurementId: "G-HNCGD9YYG2"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-
-  // Handle login form
-  document.addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById("loginForm");
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const email = form.querySelector("input[type='email']").value;
-      const password = form.querySelector("input[type='password']").value;
-
-      signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-          // Redirect to dashboard
-          window.location.href = "dashboard.html";
-        })
-        .catch((error) => {
-          alert("Login failed: " + error.message);
-        });
-    });
-  });
-</script>
 
     
 <!-- Analytics -->
@@ -87,17 +48,17 @@
 							<h6 class="float-lg-none emailtext ms-lg-4 mb-lg-2 mb-2 mt-lg-2">
 								FULL NAME
 							</h6>
-							<input class="form-control field-style ms-lg-3">
+							<input class="form-control field-style ms-lg-3" id="fullname">
 						</div>
 						<h6 class="float-lg-none emailtext ms-lg-4 mb-lg-2 mb-2 mt-lg-2">
 							EMAIL
 						</h6>
 						<div class="form-group mb-3">
-							<input class="form-control ms-lg-3 field-style" type="email" data-error-validation-msg="Not a valid email address" placeholder="EMAIL">
+							<input class="form-control ms-lg-3 field-style" type="email" data-error-validation-msg="Not a valid email address" placeholder="EMAIL" id="username">
 							<h5 class="mb-lg-2 ms-lg-4 passwordtext h5-style mt-3 mb-2 mt-lg-3">
 								PASSWORD
 							</h5>
-							<input class="form-control ms-lg-3 field-style" type="password" placeholder="PASSWORD"><a href="../dashboard/" class="btn btn-d btn-style mt-lg-2">Continue to dashboard</a>
+							<input class="form-control ms-lg-3 field-style" type="password" placeholder="PASSWORD" id="password"><a href="../dashboard/" class="btn btn-d btn-style mt-lg-2" id="submit">Continue to dashboard</a>
 							<div class="row ms-lg-3 me-lg-3 pt-4 pt-lg-2 mt-lg-2">
 								<div class="col">
 									<div class="divider-h divider-background-color">
@@ -156,10 +117,44 @@
 
 
 <!-- Additional JS -->
-<script src="../js/bootstrap.bundle.min.js?2829"></script>
-<script src="../js/blocs.min.js?8195"></script>
+<script src="../js/bootstrap.bundle.min.js?1128"></script>
+<script src="../js/blocs.min.js?4967"></script>
 <script src="../js/lazysizes.min.js" defer></script><!-- Additional JS END -->
 
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+  import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDpERVmyx4n6t1yW7YxHPKVsfmY4bOVBv0",
+    authDomain: "html-website-auth-v2.firebaseapp.com",
+    projectId: "html-website-auth-v2",
+    storageBucket: "html-website-auth-v2.firebasestorage.app",
+    messagingSenderId: "789981394325",
+    appId: "1:789981394325:web:f012a35a12d3b49584f29c",
+    measurementId: "G-HNCGD9YYG2"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("loginForm");
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const email = form.querySelector("input[type='email']").value;
+      const password = form.querySelector("input[type='password']").value;
+
+      signInWithEmailAndPassword(auth, email, password)
+        .then(() => {
+          window.location.href = "dashboard.html";
+        })
+        .catch((error) => {
+          alert("Login failed: " + error.message);
+        });
+    });
+  });
+</script>
 
 </body>
 </html>
