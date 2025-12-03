@@ -7,7 +7,7 @@ import {
 
 const auth = getAuth(app);
 
-document.getElementById("createBtn").addEventListener("click", (e) => {
+document.getElementById("createbtn").addEventListener("click", (e) => {
   e.preventDefault();
 
   const email = document.getElementById("email").value;
@@ -16,7 +16,7 @@ document.getElementById("createBtn").addEventListener("click", (e) => {
   createUserWithEmailAndPassword(auth, email, pass)
     .then(() => {
       alert("Account created!");
-      window.location.href = "login.html";
+      window.location.href = "index.html";
     })
     .catch((e) => alert(e.message));
 });
