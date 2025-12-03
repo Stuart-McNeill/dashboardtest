@@ -7,7 +7,7 @@ import {
 
 const auth = getAuth(app);
 
-document.getElementById("loginBtn").addEventListener("click", (e) => {
+document.getElementById("loginbtn").addEventListener("click", (e) => {
   e.preventDefault();
 
   const email = document.getElementById("email").value;
